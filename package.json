@@ -1,0 +1,24 @@
+{
+  "name": "odo-async",
+  "version": "1.0.0",
+  "description": "Simple async",
+  "main": "async.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/odojs/odo-async.git"
+  },
+  "keywords": [
+    "async",
+    "series",
+    "parallel"
+  ],
+  "author": "Thomas Coats",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/odojs/odo-async/issues"
+  },
+  "homepage": "https://github.com/odojs/odo-async"
+}
