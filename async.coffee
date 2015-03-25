@@ -23,4 +23,9 @@ bind = ->
   delay: (callback) ->
     setTimeout callback, 1
 
-module.exports = bind()
+if define?
+  define [], bind
+else if module?
+  module.exports = bind()
+else
+  window.async = bind()
