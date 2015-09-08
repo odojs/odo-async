@@ -1,10 +1,17 @@
 bind = ->
+  delay = if typeof process is 'object' and typeof process.nextTick is 'function'
+    process.nextTick
+  else if typeof setImmediate is 'function'
+    (fn) -> setImmediate fn
+  else
+    (fn) -> setTimeout fn, 0
+
   series: (tasks, callback) ->
     tasks = tasks.slice 0
     next = (cb) ->
       return cb() if tasks.length is 0
       task = tasks.shift()
-      task -> next cb
+      task -> delay -> next cb
     result = (cb) -> next cb
     result(callback) if callback?
     result
@@ -20,8 +27,7 @@ bind = ->
     result(callback) if callback?
     result
 
-  delay: (callback) ->
-    setTimeout callback, 1
+  delay: delay
 
 if define?
   define [], bind
