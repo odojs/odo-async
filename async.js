@@ -3,7 +3,7 @@ var bind;
 
 bind = function() {
   var delay;
-  delay = typeof process === 'object' && typeof process.nextTick === 'function' ? process.nextTick : typeof setImmediate === 'function' ? function(fn) {
+  delay = typeof setImmediate === 'function' ? function(fn) {
     return setImmediate(fn);
   } : function(fn) {
     return setTimeout(fn, 0);

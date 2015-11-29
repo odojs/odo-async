@@ -1,7 +1,5 @@
 bind = ->
-  delay = if typeof process is 'object' and typeof process.nextTick is 'function'
-    process.nextTick
-  else if typeof setImmediate is 'function'
+  delay = if typeof setImmediate is 'function'
     (fn) -> setImmediate fn
   else
     (fn) -> setTimeout fn, 0
